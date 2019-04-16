@@ -1,6 +1,15 @@
 import bcrypt from 'bcryptjs';
 import { Field, ID, ObjectType } from 'type-graphql';
-import { BaseEntity, BeforeInsert, Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BaseEntity,
+  BeforeInsert,
+  Column,
+  Entity,
+  Index,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Order } from './Order';
 
 @ObjectType()
 @Entity()
@@ -28,6 +37,10 @@ export class User extends BaseEntity {
   @Field()
   @Column({ default: 'courier' })
   deliveryMethod: string;
+
+  @Field(type => [Order])
+  @OneToMany(type => Order, order => order.user)
+  orders: Order[];
 
   @BeforeInsert()
   async hashPassword() {
