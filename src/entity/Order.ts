@@ -1,5 +1,13 @@
 import { Field, ID, Int, ObjectType } from 'type-graphql';
-import { BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Ingredient } from './Ingredient';
 import { User } from './User';
 
@@ -10,8 +18,8 @@ export class Order extends BaseEntity {
   @PrimaryGeneratedColumn()
   readonly id: number;
 
-  @Field()
-  @Column('date')
+  @Field({ nullable: true })
+  @CreateDateColumn()
   date: Date;
 
   @Field(type => Int)

@@ -8,6 +8,7 @@
   "database": "ts-burger-server",
   "synchronize": true,
   "logging": false,
+  "dropSchema": false,
   "entities": ["src/entity/**/*.*"],
   "migrations": ["src/migration/**/*.ts"],
   "subscribers": ["src/subscriber/**/*.ts"],
