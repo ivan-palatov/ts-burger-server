@@ -3,7 +3,7 @@ import { Args, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql';
 import { createQueryBuilder } from 'typeorm';
 import { Ingredient } from '../../entity/Ingredient';
 import { Order } from '../../entity/Order';
-import { Price } from '../../entity/Price';
+import { prices } from '../../entity/Price';
 import { IContext } from '../../types/IContext';
 import { OrderArgs } from './OrderArgs';
 
@@ -22,7 +22,7 @@ export class OrdersResolver {
   @Authorized()
   async order(@Args() { ingredients }: OrderArgs, @Ctx() { req }: IContext) {
     try {
-      const price = ingredients.reduce((acc, { name, amount }) => Price[name] * amount + acc, 0);
+      const price = ingredients.reduce((acc, { name, amount }) => prices[name] * amount + acc, 0);
       const res = await Order.createQueryBuilder()
         .insert()
         .values({ user: { id: req.session!.userId }, price })
