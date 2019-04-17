@@ -1,6 +1,10 @@
-import { Authorized, Ctx, Query, Resolver } from 'type-graphql';
+import { ApolloError } from 'apollo-server-core';
+import { Args, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql';
+import { createQueryBuilder } from 'typeorm';
+import { Ingredient } from '../../entity/Ingredient';
 import { Order } from '../../entity/Order';
 import { IContext } from '../../types/IContext';
+import { OrderArgs } from './OrderArgs';
 
 @Resolver()
 export class OrdersResolver {
@@ -11,5 +15,23 @@ export class OrdersResolver {
       where: { user: { id: req.session!.userId } },
       relations: ['ingredients'],
     });
+  }
+
+  @Mutation(returns => Boolean)
+  @Authorized()
+  async order(@Args() { ingredients }: OrderArgs, @Ctx() { req }: IContext) {
+    try {
+      const res = await Order.createQueryBuilder('o')
+        .insert()
+        .values({ user: { id: req.session!.userId }, date: new Date(), ingredients, price: 10 })
+        .execute();
+      await createQueryBuilder(Ingredient)
+        .insert()
+        .values(ingredients.map(ing => ({ ...ing, order: res.identifiers[0] })))
+        .execute();
+      return true;
+    } catch (e) {
+      throw new ApolloError('bad request');
+    }
   }
 }
