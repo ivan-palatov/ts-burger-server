@@ -6,10 +6,6 @@ import { isEmailAlreadyUsed } from './isEmailAlreadyUsed';
 @InputType()
 export class RegisterInput implements Partial<User> {
   @Field()
-  @Length(2, 100)
-  name: string;
-
-  @Field()
   @IsEmail()
   @isEmailAlreadyUsed()
   email: string;
