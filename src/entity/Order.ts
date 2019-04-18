@@ -34,6 +34,10 @@ export class Order extends BaseEntity {
   @Column()
   phone: string;
 
+  @Field()
+  @Column()
+  deliveryMethod: string;
+
   @Field(type => User)
   @ManyToOne(type => User, user => user.orders)
   user: User;

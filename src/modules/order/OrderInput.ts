@@ -1,4 +1,4 @@
-import { Max, Min } from 'class-validator';
+import { IsIn, Max, Min } from 'class-validator';
 import { Field, InputType } from 'type-graphql';
 import { Ingredient } from '../../entity/Ingredient';
 
@@ -16,4 +16,8 @@ export class OrderInput {
   @Min(6)
   @Max(15)
   phone: string;
+
+  @Field()
+  @IsIn(['courier', 'take out'])
+  deliveryMethod: string;
 }

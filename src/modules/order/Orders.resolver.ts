@@ -20,12 +20,15 @@ export class OrdersResolver {
 
   @Mutation(returns => Boolean)
   @Authorized()
-  async order(@Arg('data') { ingredients, address, phone }: OrderInput, @Ctx() { req }: IContext) {
+  async order(
+    @Arg('data') { ingredients, address, phone, deliveryMethod }: OrderInput,
+    @Ctx() { req }: IContext
+  ) {
     try {
       const price = ingredients.reduce((acc, { name, amount }) => prices[name] * amount + acc, 0);
       const order = await Order.createQueryBuilder()
         .insert()
-        .values({ user: { id: req.session!.userId }, price, address, phone })
+        .values({ user: { id: req.session!.userId }, price, address, phone, deliveryMethod })
         .execute();
       await createQueryBuilder(Ingredient)
         .insert()
