@@ -38,6 +38,10 @@ export class User extends BaseEntity {
   @Column({ default: 'courier' })
   deliveryMethod: string;
 
+  @Field()
+  @Column({ default: '' })
+  phone: string;
+
   @Field(type => [Order])
   @OneToMany(type => Order, order => order.user)
   orders: Order[];
