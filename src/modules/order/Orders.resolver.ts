@@ -1,11 +1,11 @@
 import { ApolloError } from 'apollo-server-core';
-import { Args, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql';
+import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql';
 import { createQueryBuilder } from 'typeorm';
 import { Ingredient } from '../../entity/Ingredient';
 import { Order } from '../../entity/Order';
 import { prices } from '../../entity/Price';
 import { IContext } from '../../types/IContext';
-import { OrderArgs } from './OrderArgs';
+import { OrderInput } from './OrderInput';
 
 @Resolver()
 export class OrdersResolver {
@@ -20,16 +20,16 @@ export class OrdersResolver {
 
   @Mutation(returns => Boolean)
   @Authorized()
-  async order(@Args() { ingredients }: OrderArgs, @Ctx() { req }: IContext) {
+  async order(@Arg('data') { ingredients, address, phone }: OrderInput, @Ctx() { req }: IContext) {
     try {
       const price = ingredients.reduce((acc, { name, amount }) => prices[name] * amount + acc, 0);
-      const res = await Order.createQueryBuilder()
+      const order = await Order.createQueryBuilder()
         .insert()
-        .values({ user: { id: req.session!.userId }, price })
+        .values({ user: { id: req.session!.userId }, price, address, phone })
         .execute();
       await createQueryBuilder(Ingredient)
         .insert()
-        .values(ingredients.map(ing => ({ ...ing, order: res.identifiers[0] })))
+        .values(ingredients.map(ing => ({ ...ing, order: order.identifiers[0] })))
         .execute();
       return true;
     } catch (e) {

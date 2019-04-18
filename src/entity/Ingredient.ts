@@ -4,7 +4,7 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Order } from './Order';
 
 @ObjectType()
-@InputType('ing')
+@InputType('IngredientInput')
 @Entity()
 export class Ingredient {
   @PrimaryGeneratedColumn()

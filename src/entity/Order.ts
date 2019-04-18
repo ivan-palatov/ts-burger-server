@@ -18,13 +18,21 @@ export class Order extends BaseEntity {
   @PrimaryGeneratedColumn()
   readonly id: number;
 
-  @Field({ nullable: true })
+  @Field()
   @CreateDateColumn()
   date: Date;
 
   @Field(type => Int)
   @Column('int')
   price: number;
+
+  @Field()
+  @Column()
+  address: string;
+
+  @Field()
+  @Column()
+  phone: string;
 
   @Field(type => User)
   @ManyToOne(type => User, user => user.orders)
