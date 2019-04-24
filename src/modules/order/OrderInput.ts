@@ -1,4 +1,4 @@
-import { IsIn, Max, Min } from 'class-validator';
+import { IsIn, Length } from 'class-validator';
 import { Field, InputType } from 'type-graphql';
 import { Ingredient } from '../../entity/Ingredient';
 
@@ -8,13 +8,11 @@ export class OrderInput {
   ingredients: Ingredient[];
 
   @Field()
-  @Min(6)
-  @Max(255)
+  @Length(6, 255)
   address: string;
 
   @Field()
-  @Min(6)
-  @Max(15)
+  @Length(6, 15)
   phone: string;
 
   @Field()
