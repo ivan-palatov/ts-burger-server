@@ -1,15 +1,11 @@
 import { IsIn, Length } from 'class-validator';
 import { Field, InputType } from 'type-graphql';
-import { Ingredient } from '../../entity/Ingredient';
 
 @InputType()
-export class OrderInput {
+export class EditUserInput {
   @Field()
   @Length(4, 200)
   name: string;
-
-  @Field(type => [Ingredient])
-  ingredients: Ingredient[];
 
   @Field()
   @Length(6, 255)

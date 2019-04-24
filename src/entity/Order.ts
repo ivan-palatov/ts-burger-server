@@ -1,4 +1,4 @@
-import { Field, ID, Int, ObjectType } from 'type-graphql';
+import { Field, Float, ID, ObjectType } from 'type-graphql';
 import {
   BaseEntity,
   Column,
@@ -22,9 +22,13 @@ export class Order extends BaseEntity {
   @CreateDateColumn()
   date: Date;
 
-  @Field(type => Int)
-  @Column('int')
+  @Field(type => Float)
+  @Column('double precision')
   price: number;
+
+  @Field()
+  @Column({ default: '' })
+  name: string;
 
   @Field()
   @Column()
