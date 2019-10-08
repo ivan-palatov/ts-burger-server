@@ -12,13 +12,13 @@
     "@types/graphql": "^14.2.0",
     "@types/ioredis": "^4.0.18",
     "@types/node": "^12.7.11",
-    "@types/request": "^2.48.1",
+    "@types/request": "^2.48.3",
     "@types/request-promise": "^4.1.42",
     "@types/uuid": "^3.4.5",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "ts-node-dev": "^1.0.0-pre.43",
-    "typescript": "3.4.3"
+    "ts-node-dev": "^1.0.0-pre.32",
+    "typescript": "3.6.3"
   },
   "dependencies": {
     "apollo-server-express": "^2.4.8",
@@ -32,7 +32,7 @@
     "express-session": "^1.16.1",
     "graphql": "^14.5.8",
     "graphql-query-complexity": "^0.2.3",
-    "ioredis": "^4.9.0",
+    "ioredis": "^4.14.1",
     "mysql": "^2.17.1",
     "pg": "^7.12.1",
     "reflect-metadata": "^0.1.10",
