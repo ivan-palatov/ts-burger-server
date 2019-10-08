@@ -17,7 +17,7 @@
     "@types/uuid": "^3.4.4",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "ts-node-dev": "^1.0.0-pre.32",
+    "ts-node-dev": "^1.0.0-pre.43",
     "typescript": "3.4.3"
   },
   "dependencies": {
