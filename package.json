@@ -37,9 +37,9 @@
     "pg": "^7.12.1",
     "reflect-metadata": "^0.1.10",
     "ts-node": "8.4.1",
-    "type-graphql": "^0.17.5",
-    "typeorm": "0.2.16",
-    "uuid": "^3.3.3"
+    "type-graphql": "^0.17.1",
+    "typeorm": "0.2.19",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start-watch": "ts-node-dev --type-check --respawn --files src/index.ts",
