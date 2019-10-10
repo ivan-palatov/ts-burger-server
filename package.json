@@ -18,7 +18,7 @@
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "ts-node-dev": "^1.0.0-pre.32",
-    "typescript": "3.6.3"
+    "typescript": "3.6.4"
   },
   "dependencies": {
     "apollo-server-express": "^2.9.5",
