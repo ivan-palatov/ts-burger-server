@@ -113,6 +113,16 @@
   dependencies:
     "@types/node" "*"
 
+"@types/cookies@*":
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/@types/cookies/-/cookies-0.7.4.tgz#26dedf791701abc0e36b5b79a5722f40e455f87b"
+  integrity sha512-oTGtMzZZAVuEjTwCjIh8T8FrC8n/uwy+PG0yTvQcdZ7etoel7C7/3MSd7qrukENTgQtotG7gvBlBojuVs7X5rw==
+  dependencies:
+    "@types/connect" "*"
+    "@types/express" "*"
+    "@types/keygrip" "*"
+    "@types/node" "*"
+
 "@types/cors@^2.8.4":
   version "2.8.6"
   resolved "https://registry.yarnpkg.com/@types/cors/-/cors-2.8.6.tgz#cfaab33c49c15b1ded32f235111ce9123009bd02"
@@ -1344,13 +1354,6 @@ graphql-extensions@^0.10.3:
     apollo-server-env "^2.4.3"
     apollo-server-types "^0.2.4"
 
-graphql-extensions@0.5.7:
-  version "0.5.7"
-  resolved "https://registry.yarnpkg.com/graphql-extensions/-/graphql-extensions-0.5.7.tgz#2b647e4e36997dc85b7f58ebd64324a5250fb2cf"
-  integrity sha512-HrU6APE1PiehZ46scMB3S5DezSeCATd8v+e4mmg2bqszMyCFkmAnmK6hR1b5VjHxhzt5/FX21x1WsXfqF4FwdQ==
-  dependencies:
-    "@apollographql/apollo-tools" "^0.3.3"
-
 graphql-query-complexity@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/graphql-query-complexity/-/graphql-query-complexity-0.3.0.tgz#71a44e124b7591a185d9d8cde55205aa57680c5d"
@@ -1358,10 +1361,10 @@ graphql-query-complexity@^0.3.0:
   dependencies:
     lodash.get "^4.4.2"
 
-graphql-query-complexity@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/graphql-query-complexity/-/graphql-query-complexity-0.4.0.tgz#d2f975dc849379940b524adf271a7d55612851de"
-  integrity sha512-DsrYDk05G46dF9BfNCytIAXwQRcsDuRusO0BtcE7w/JUDx8iXtHucAJlfuFFwQXmBKLeW02x9FBsAPTivPB4Rw==
+graphql-query-complexity@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/graphql-query-complexity/-/graphql-query-complexity-0.4.1.tgz#06ad49de617da0d74c8196fb4a641349f104552d"
+  integrity sha512-Uo87hNlnJ5jwoWBkVYITbJpTrlCVwgfG5Wrfel0K1/42G+3xvud31CpsprAwiSpFIP+gCqttAx7OVmw4eTqLQQ==
   dependencies:
     lodash.get "^4.4.2"
 
@@ -1371,7 +1374,7 @@ graphql-subscriptions@^1.0.0, graphql-subscriptions@^1.1.0:
   integrity sha512-6WzlBFC0lWmXJbIVE8OgFgXIP4RJi3OQgTPa0DVMsDXdpRDjTsM1K9wfl5HSYX7R87QAGlvcv2Y4BIZa/ItonA==
   dependencies:
     iterall "^1.2.1"
-    
+
 graphql-tag@^2.9.2:
   version "2.10.1"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.10.1.tgz#10aa41f1cd8fae5373eaf11f1f67260a3cad5e02"
@@ -2114,7 +2117,7 @@ parse5@^4.0.0:
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-4.0.0.tgz#6d78656e3da8d78b4ec0b906f7c08ef1dfe3f608"
   integrity sha512-VrZ7eOd3T1Fk4XWNXMgiGBK/z0MG48BWG2uQNU4I72fkQuKUTZpl+u9k+CxEG0twMVzSmXEEz12z5Fnw1jIQFA==
 
-parseurl@~1.3.3:
+parseurl@^1.3.2, parseurl@~1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
   integrity sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==
