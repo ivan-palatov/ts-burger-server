@@ -14,7 +14,7 @@
     "@types/node": "^12.7.11",
     "@types/request": "^2.48.3",
     "@types/request-promise": "^4.1.44",
-    "@types/uuid": "^3.4.5",
+    "@types/uuid": "^3.4.6",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "ts-node-dev": "^1.0.0-pre.32",
